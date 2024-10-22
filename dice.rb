@@ -22,46 +22,85 @@ get("/giraffe") do
 end
 
 get("/dice/2/6") do
-  first_die = rand(1..6)
-  second_die = rand(1..6)
-  sum = first_die + second_die
+  @rolls = []    # Create a blank array
 
-  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  2.times do    # 100 times...
+    die = rand(1..6)    # Generate a random number
+
+    @rolls.push(die)    # Add the random number to the array 
+  end
+  
+  # first_die = rand(1..6)
+  # second_die = rand(1..6)
+  # sum = first_die + second_die
+
+  # @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
   
   erb(:two_six)
 end
 
 get("/dice/2/10") do
-  first_die = rand(1..10)
-  second_die = rand(1..10)
-  sum = first_die + second_die
+  @rolls = []    # Create a blank array
 
-  outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  2.times do    # 100 times...
+    die = rand(1..10)    # Generate a random number
 
-  "<h1>2d10</h1>
-    <p>#{outcome}</p>"
+    @rolls.push(die)    # Add the random number to the array 
+  end
+  # first_die = rand(1..10)
+  # second_die = rand(1..10)
+  # sum = first_die + second_die
+
+  # @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+
+
+  erb(:two_ten)
 
 end
 
 get("/dice/1/20") do
-  first_die = rand(1..20)
-  sum = first_die
+  @rolls = []    # Create a blank array
 
-  outcome = "You rolled a #{first_die} for a total sum of #{sum}."
+  1.times do    # 100 times...
+    die = rand(1..20)    # Generate a random number
 
-  "<h1>1d20</h1>
-    <p>#{outcome}</p>"
+    @rolls.push(die)    # Add the random number to the array 
+  end
+  # @die = rand(1..20)
+
+  # @outcome = "You rolled a #{die}."
+	
+	erb(:one_twenty)
 end
 
-get("/dice/3/5") do
-  first_die = rand(1..5)
-  second_die = rand(1..5)
-  third_die = rand(1..5)
+get("/dice/5/4") do
+  @rolls = []    # Create a blank array
 
-  sum = first_die + second_die + third_die
+  5.times do    # 100 times...
+    die = rand(1..4)    # Generate a random number
 
-  outcome = "You rolled a #{first_die}, #{second_die}, and a #{third_die} for a total of #{sum}."
+    @rolls.push(die)    # Add the random number to the array 
+  end
+  
+  # first_die = rand(1..5)
+  # second_die = rand(1..5)
+  # third_die = rand(1..5)
 
-  "<h1>3d5</h1>
-   <p>#{outcome}</p>"
+  # sum = first_die + second_die + third_die
+
+  # @outcome = "You rolled a #{first_die}, #{second_die}, and a #{third_die} for a total of #{sum}."
+
+  erb(:five_four)
 end
+
+# get("/dice/100/6") do
+#   @rolls = []    # Create a blank array
+
+#   100.times do    # 100 times...
+#     die = rand(1..6)    # Generate a random number
+
+#     @rolls.push(die)    # Add the random number to the array 
+#   end
+
+#   erb(:one_hundred_six)
+# end
